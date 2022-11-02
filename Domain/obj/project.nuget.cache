@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "64rHjQ8Q3YUkMmKvvsiVIpxRlWLEYQsAh9x9+55I4M4rAKHc+snOJTg6v1xRREa1MGA6hm3KaKXhUY51OBuujA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\erick\\source\\repos\\HealthierApi\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\erick\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\erick\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
