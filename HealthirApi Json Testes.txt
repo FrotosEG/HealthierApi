@@ -1,0 +1,35 @@
+--Testar Post:
+{
+  "nome": "Erick",
+  "cpf": "88899911100",
+  "telefoneDDD": "47",
+  "telefone": "98765432",
+  "email": "teste@teste.com.br",
+  "premium": 0,
+  "senha": "elaehcriptografadanocodigo"
+}
+
+
+=======================================================
+--Testar Update:
+{
+  "idUsuario": {id que saiu da criacao do post de cima}
+  "nome": "Nicolas",
+  "cpf": "99999999999",
+  "telefoneDDD": "47",
+  "telefone": "99999999",
+  "email": "teste@teste.com.br",
+  "premium": 0,
+  "senha": "elaehcriptografadanocodigo"
+}
+======================================================
+--Testar Get:
+{
+  "idUsuario": {id que saiu da criacao do post de cima}
+}
+
+======================================================
+--Testar Delete
+{
+  "idUsuario": {id que saiu da criacao do post de cima}
+}

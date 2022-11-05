@@ -8,16 +8,16 @@ namespace Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<AlimentosModel> builder)
         {
-            builder.ToTable("Alimentos");
-            builder.HasKey(x => x.Id);
+            builder.ToTable("alimentos");
+            builder.HasKey(x => x.id);
 
-            builder.Property(x => x.NomeAlimento).HasColumnName("NomeAlimento").HasColumnType("varchar").HasMaxLength(100).IsRequired();
-            builder.Property(x => x.ValorCalorico).HasColumnName("ValorCalorico").HasColumnType("decimal").IsRequired();
-            builder.Property(x => x.ValorNutricional).HasColumnName("ValorNutricional").HasColumnType("decimal").IsRequired();
-            builder.Property(x => x.Descricao).HasColumnName("Descricao").HasColumnType("varchar").HasMaxLength(250).IsRequired();
-            builder.Property(x => x.IdAlimentoSimilar1).HasColumnName("CafeDaManha1").HasColumnType("bigint");
-            builder.Property(x => x.IdAlimentoSimilar2).HasColumnName("CafeDaManha1").HasColumnType("bigint");
-            builder.Property(x => x.IdAlimentoSimilar3).HasColumnName("CafeDaManha1").HasColumnType("bigint");
+            builder.Property(x => x.NomeAlimento).HasColumnName("nomealimento").HasColumnType("varchar").HasMaxLength(100).IsRequired();
+            builder.Property(x => x.ValorCalorico).HasColumnName("valorcalorico").HasColumnType("decimal").IsRequired();
+            builder.Property(x => x.ValorNutricional).HasColumnName("valornutricional").HasColumnType("decimal").IsRequired();
+            builder.Property(x => x.Descricao).HasColumnName("descricao").HasColumnType("varchar").HasMaxLength(250).IsRequired();
+            builder.Property(x => x.IdAlimentoSimilar1).HasColumnName("idalimentosimilar1").HasColumnType("bigint");
+            builder.Property(x => x.IdAlimentoSimilar2).HasColumnName("idalimentosimilar2").HasColumnType("bigint");
+            builder.Property(x => x.IdAlimentoSimilar3).HasColumnName("idalimentosimilar3").HasColumnType("bigint");
         }
     }
 }

@@ -6,41 +6,41 @@ namespace Infra.Data.Repository
 {
     public class RepositoryBase<TEntity, TPK> : IRepository<TEntity, TPK> where TEntity : BaseEntity<TPK>
     {
-        protected readonly DbContext _context;
+        protected readonly Microsoft.EntityFrameworkCore.DbContext _context;
         protected readonly DbSet<TEntity> _dbSet;
 
-        public RepositoryBase(DbContext context)
+        public RepositoryBase(Microsoft.EntityFrameworkCore.DbContext context)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();
         }
-        public async Task<IEnumerable<TEntity>> GetAllAsnc()
-            => await _dbSet.ToListAsync();
 
-        public async Task<TEntity?> GetByIdAsync(TPK id)
-            => await _dbSet.FindAsync(id);
+        public IEnumerable<TEntity> GetAll()
+            => _dbSet.ToList();
 
-        public async Task InsertAsync(TEntity entity)
-            => await _dbSet.AddAsync(entity);
+        public TEntity GetById(TPK id)
+            => _dbSet.Find(id);
 
-        public async Task UpdateAsync(TEntity entity)
+        public void Update(TEntity entity)
         {
-            var result = await _dbSet.FindAsync(entity.Id);
+            var result = _dbSet.Find(entity.id);
             if (result != null)
                 _context.Entry(result).CurrentValues.SetValues(entity);
         }
 
-        public async Task DeleteAsync(TPK id)
+        public virtual void Delete(TPK id)
         {
-            var entity = await _dbSet.FindAsync(id);
+            var entity = _dbSet.Find(id);
             if (entity != null)
             {
                 _dbSet.Remove(entity);
-                await _context.SaveChangesAsync();
             }
         }
 
-        public void SaveChanges()
-             => _context.SaveChanges();
+        public virtual void Insert(TEntity entity)
+            => _dbSet.Add(entity);
+
+        public virtual void SaveChanges()
+            => _context.SaveChanges();
     }
 }

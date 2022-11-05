@@ -5,7 +5,7 @@ namespace Domain.Models
     public class FichaPesoModel : BaseEntity<long>
     {
         public long IdUsuario { get; set; }
-        public string? PesoUsuarioNaCriacao { get; set; }
+        public decimal? PesoUsuarioNaCriacao { get; set; }
         public short TipoObjetivoUsuario { get; set; }
         public decimal AlturaUsuario { get; set; }
         public decimal PesoDesejadoUsuario { get; set; }

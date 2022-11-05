@@ -1,6 +1,7 @@
 ﻿using Domain.Interfaces;
 using Infra.Data.Context;
 using Infra.Data.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infra.Data.CrossCuting.Ioc
@@ -20,6 +21,7 @@ namespace Infra.Data.CrossCuting.Ioc
             //Adicionando DB
             services.AddScoped<IUnitOfWork<DbContext>, UnitOfWork<DbContext>>();
             services.AddDbContextFactory<DbContext>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             return services;
         }

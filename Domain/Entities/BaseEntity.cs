@@ -2,6 +2,6 @@
 {
     public abstract class BaseEntity<TPK>
     {
-        public TPK? Id { get; set; }
+        public TPK? id { get; set; }
     }
 }

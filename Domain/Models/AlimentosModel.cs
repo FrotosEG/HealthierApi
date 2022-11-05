@@ -8,9 +8,9 @@ namespace Domain.Models
         public decimal ValorCalorico { get; set; }
         public decimal ValorNutricional { get; set; }
         public string? Descricao { get; set; }
-        public string? IdAlimentoSimilar1 { get; set; }
-        public string? IdAlimentoSimilar2 { get; set; }
-        public string? IdAlimentoSimilar3 { get; set; }
+        public long? IdAlimentoSimilar1 { get; set; }
+        public long? IdAlimentoSimilar2 { get; set; }
+        public long? IdAlimentoSimilar3 { get; set; }
 
     }
 }

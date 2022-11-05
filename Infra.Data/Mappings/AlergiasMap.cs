@@ -8,12 +8,12 @@ namespace Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<AlergiasModel> builder)
         {
-            builder.ToTable("Alergias");
-            builder.HasKey(x => x.Id);
+            builder.ToTable("alergias");
+            builder.HasKey(x => x.id);
 
-            builder.Property(x => x.NomeAlergia).HasColumnName("NomeAlergia").HasColumnType("varchar").HasMaxLength(100);
-            builder.Property(x => x.Descricao).HasColumnName("Descricao").HasColumnType("varchar").HasMaxLength(250);
-            builder.Property(x => x.Causas).HasColumnName("Causas").HasColumnType("varchar").HasMaxLength(250);
+            builder.Property(x => x.NomeAlergia).HasColumnName("nomealergia").HasColumnType("varchar").HasMaxLength(100);
+            builder.Property(x => x.Descricao).HasColumnName("descricao").HasColumnType("varchar").HasMaxLength(250);
+            builder.Property(x => x.Causas).HasColumnName("causas").HasColumnType("varchar").HasMaxLength(250);
         }
     }
 }

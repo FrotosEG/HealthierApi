@@ -9,7 +9,7 @@ namespace Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<FichaAlimentacaoModel> builder)
         {
             builder.ToTable("FichaAlimentacao");
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.id);
 
             builder.Property(x => x.CafeDaManha1).HasColumnName("CafeDaManha1").HasColumnType("bigint");
             builder.Property(x => x.CafeDaManha2).HasColumnName("CafeDaManha2").HasColumnType("bigint");

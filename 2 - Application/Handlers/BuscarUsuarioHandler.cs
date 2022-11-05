@@ -16,18 +16,37 @@ namespace Application.Handlers
 
         public Task<BuscarUsuarioResponse> Handle(BuscarUsuarioCommand request, CancellationToken cancellationToken)
         {
-            var response = new BuscarUsuarioResponse();
-            var usuario = new UsuarioModel();
-            usuario.TelefoneDDD = "47";
-            usuario.Telefone = "992279870";
-            usuario.Nome = "Erick Artur Garcia";
-            usuario.Premium = 1;
-            usuario.SenhaCriptografada = "SistemaPrivada1@";
-            usuario.Cpf = "12776605900";
-            _usuarioRepository.InsertAsync(usuario);
-            _usuarioRepository.SaveChanges();
-            response.teste = 10;
-            return Task.FromResult(response);
+            var retorno = new BuscarUsuarioResponse();
+            try
+            {
+                var usuario = _usuarioRepository.GetById(request.IdUsuario);
+                if(usuario == null)
+                {
+                    retorno.Sucesso = false;
+                    retorno.StatusCode = 400;
+                    retorno.MensagemSucesso = "Nenhum usuário encontrado.";
+                    return Task.FromResult(retorno);
+                }
+
+                retorno.TelefoneDDD = usuario.TelefoneDDD;
+                retorno.Telefone = usuario.Telefone;
+                retorno.Nome = usuario.Nome;
+                retorno.Premium = usuario.Premium;
+                retorno.Email = usuario.Email;
+                retorno.Cpf = usuario.Cpf;
+
+                retorno.Sucesso = true;
+                retorno.StatusCode = 200;
+                retorno.MensagemSucesso = $"Usuário criado com sucesso.";
+            }
+            catch (Exception ex)
+            {
+                retorno.Sucesso = false;
+                retorno.StatusCode = 500;
+                retorno.MensagemSucesso = $"Exception: {ex}, inner:{ex.InnerException?.Message}";
+            }
+          
+            return Task.FromResult(retorno);
         }
     }
 }
